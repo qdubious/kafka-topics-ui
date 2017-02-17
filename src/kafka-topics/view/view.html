@@ -55,7 +55,7 @@
                                  </div>
                              </md-content>
                          </div>
-                      <div  ng-class="showList ? 'listOpened' : ''" class="view-container">
+                      <div  ng-class="showList ? 'listOpened' : ''" class="view-container" id="view-container">
 
                           <!-- BREADCRUMBS -->
                           <div ng-include="'src/kafka-topics/view/templates/topic-toolbar.html'"></div>
@@ -76,7 +76,7 @@
 
                              <div ng-show="selectedMenuItem == 'partitions'" ng-include="'src/kafka-topics/view/templates/topic-partitions.html'" layout-margin></div>
 
-                             <div ng-show="selectedMenuItem == 'configuration'" ng-include="'src/kafka-topics/view/templates/topic-configuration.html'" layout-margin></div>
+                             <div ng-if="selectedMenuItem == 'configuration'" ng-include="'src/kafka-topics/view/templates/topic-configuration.html'" layout-margin></div>
 
                              <div ng-show="selectedMenuItem == 'metrics'" ng-include="'src/kafka-topics/view/templates/topic-metrics.html'" layout-margin></div>
 

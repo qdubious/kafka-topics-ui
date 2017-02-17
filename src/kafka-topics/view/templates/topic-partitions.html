@@ -15,7 +15,7 @@
 
 
 <md-content layout="column" style="padding:10px;">
-    <div flex="100" google-chart chart="chartObject" ng-if="topic.partitions > 1"></div>
+    <div ng-cloak flex="100" google-chart chart="chartObject" ng-if="topic.partitions > 1 && selectedMenuItem == 'partitions' && !showSpinner" ></div>
     <table class="topics-table">
         <thead>
         <tr>

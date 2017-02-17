@@ -1,3 +1,4 @@
+{{aceHeight}}test
 <div id="left"
      ng-model="aceString"
      ng-readonly="true"
@@ -7,5 +8,6 @@
                 mode: 'json',
                 firstLineNumber: 1,
                 onLoad: aceLoaded,
-                onChange: aceChanged,
-                showPrintMargin:false  }"></div>
+                showPrintMargin:false  }"
+     style="height:{{aceHeight}}px"
+></div>

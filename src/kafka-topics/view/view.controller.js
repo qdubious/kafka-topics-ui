@@ -36,9 +36,8 @@ angularAPP.controller('ViewTopicCtrl', function ($scope, $routeParams, $log, $lo
         })
 
         $scope.chartObject.type = "TreeMap";
-        var data =$scope.chartData;
 
-        $scope.chartObject.data = data;
+        $scope.chartObject.data =  $scope.chartData;
         $scope.chartObject.options = {
          headerColor: '#F5F5F5',
          minColor: '#FEFEFF',
@@ -63,6 +62,14 @@ angularAPP.controller('ViewTopicCtrl', function ($scope, $routeParams, $log, $lo
       $scope.allTopics = allTopics;
     });
 
+    $scope.$watch('selectedMenuItem', function(newVal, oldVal) {
+           setTimeout(function(){
+           if (newVal == 'partitions') {
+               $scope.chartObject = $scope.chartObject;
+               }
+               console.log('test', newVal)
+            }, 100);
+    }, true);
 
 /*******************************
  * topic-toolbar.html
@@ -175,6 +182,8 @@ angularAPP.controller('ViewTopicCtrl', function ($scope, $routeParams, $log, $lo
   $scope.onTabChanges = function(currentTabIndex, cluster){
       $location.path ("cluster/"+ cluster.NAME + "/topic/" +  topicCategoryUrl + "/" + topicName +  "/" + $scope.selectedMenuItem + "/" + currentTabIndex, false);
   };
+
+
 
 /*******************************
  * still Depends on Kafka Rest

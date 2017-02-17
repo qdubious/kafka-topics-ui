@@ -27,11 +27,12 @@ dataRawViewModule.controller('dataRawViewCtrl', function ($scope, $log) {
         $scope.editor = _editor;
         $scope.editor.$blockScrolling = Infinity;
         _editor.setOptions({
-          minLines: 33,
-          maxLines: 33
-        });
+          minLines: 33
+          });
    };
 
+  $scope.aceHeight = window.innerHeight - 290;
+  console.log($scope.aceHeight)
 
 
 

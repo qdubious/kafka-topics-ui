@@ -627,6 +627,7 @@ json-tree json-node.expandable::before {
   transition: -webkit-transform .1s ease;
   transition: transform .1s ease;
   transition: transform .1s ease, -webkit-transform .1s ease;
+  top:6px;
 }
 json-tree json-node.expandable.expanded::before {
   -webkit-transform: rotate(90deg);
