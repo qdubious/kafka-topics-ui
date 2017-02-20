@@ -179,7 +179,42 @@ angularAPP.controller('ViewTopicCtrl', function ($scope, $routeParams, $log, $lo
   //      $scope.topic = mockedTopic;
 
 
+if(typeof(EventSource) !== "undefined") {
+    // Yes! Server-sent events support!
+    // Some code.....
+} else {
+    // Sorry! No server-sent events support..
+    console.log("Not supported server side events. ")
+}
+   $scope.msg = [];
 
+        // handles the callback from the received event
+        var handleCallback = function (msg) {
+            console.log("SSE - MSQ", msg)
+            $scope.$apply(function () {
+                $scope.msg.push(JSON.parse(msg.data))
+            });
+        }
+ var source = new EventSource('https://kafka-backend.demo.landoop.com/api/sse/topics/data/_schemas?start_ts=123456700&end_ts=123456799&partitions=1,2,3&limit=10000&sample=3');
+// source.addEventListener('message', handleCallback, false);
+
+source.onopen = function () {
+console.log("SSE - OPENED CONNECTION")
+};
+
+source.onerror = function () {
+    console.log("SSE - OPENED ERROR")
+};
+
+source.addEventListener('connections', handleCallback, false);
+source.addEventListener('requests', handleCallback, false);
+source.addEventListener('uptime', handleCallback, false);
+
+source.onmessage = function (event) {
+  $scope.$apply(function () {
+                  $scope.msg.push(JSON.parse(event.data))
+              });
+};
 
 });
 

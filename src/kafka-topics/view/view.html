@@ -73,7 +73,9 @@
                                    There are no messages in this topic.
                              </div>
 
-                             <div ng-show="selectedMenuItem == 'overview'" ng-include="'src/kafka-topics/view/templates/topic-overview.html'" layout-margin></div>
+                              <div ng-show="selectedMenuItem == 'realtime'" ng-include="'src/kafka-topics/view/templates/realtime.html'" layout-margin></div>
+
+                              <div ng-show="selectedMenuItem == 'overview'" ng-include="'src/kafka-topics/view/templates/topic-overview.html'" layout-margin></div>
 
                              <div ng-show="selectedMenuItem == 'partitions'" ng-include="'src/kafka-topics/view/templates/topic-partitions.html'" layout-margin></div>
 
