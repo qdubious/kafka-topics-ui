@@ -12,7 +12,7 @@ totalTopicsModule.directive('totalTopics', function(templates) {
 totalTopicsModule.factory('SummariesBackendFactory', function (HttpFactory) {
     return {
         getListInfo: function (endpoint) {
-           return HttpFactory.req('GET', endpoint + '/topics/summaries');
+           return HttpFactory.req('GET', endpoint + '/topics/summary');
         }
     }
 });

@@ -31,7 +31,7 @@ topicsListModule.factory('templates', function() {
 topicsListModule.factory('SummariesBackendFactory', function (HttpFactory) {
     return {
         getListInfo: function (endpoint) {
-           return HttpFactory.req('GET', endpoint + '/topics/summaries');
+           return HttpFactory.req('GET', endpoint + '/topics/summary');
         },
         sortByKey: function (array, key, reverse) {
           return sortByKey(array, key, reverse);

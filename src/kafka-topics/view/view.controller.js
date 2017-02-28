@@ -251,7 +251,7 @@ angularAPP.factory('TopicFactory', function (HttpFactory) {
             return HttpFactory.req('GET', endpoint + "/topics/chart/"+ topicName)
           },
           getAllTopics: function(endpoint) {
-            return HttpFactory.req('GET', endpoint + "/topics/summaries")
+            return HttpFactory.req('GET', endpoint + "/topics/summary")
           }
     }
 });
